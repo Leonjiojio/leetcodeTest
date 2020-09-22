@@ -1,5 +1,6 @@
 package com.sinovoice.lib.tree;
 
+import javax.swing.tree.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -8,7 +9,7 @@ import java.util.Stack;
  * Created by liqiang on 2020/9/16.
  **/
 public class BinaryTree {
-    //前序遍历递归的方式
+    //前序遍历递归的方式NLR
     public void preOrder(BinaryTreeNode root){
         if(null!=root){
             System.out.print(root.getData()+"\t");
@@ -19,19 +20,20 @@ public class BinaryTree {
 
     //前序遍历非递归的方式
     public void preOrderNonRecursive(BinaryTreeNode root){
+
         Stack<BinaryTreeNode> stack=new Stack<>();
         while (true){
             while (root!=null){
-//                log
+                //logNLR
+                System.out.print(root.getData()+"\t");
                 stack.push(root);
                 root=root.getLeft();
             }
             if (stack.isEmpty())break;
             root=stack.pop();
-//            log
+            //log LNR
             root=root.getRight();
         }
-
     }
 
     //中序遍历采用递归的方式
@@ -107,12 +109,32 @@ public class BinaryTree {
             temp=queue.poll();
 //            log
             if (temp.getLeft()!=null)queue.offer(temp.getLeft());
-            if (temp.getRight() != null) queue.offer(temp.getRight());
+            if (temp.getRight()!=null)queue.offer(temp.getRight());
 
         }
     }
 
-    public static void main(String[] args) {
+    public static void depthTraversal(BinaryTreeNode node) {
+        if (node == null) {
+            System.out.print("empty tree");
+            return;
+        }
+        Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
+        stack.push(node);
+        while (!stack.isEmpty()) {
+            BinaryTreeNode rnode = stack.pop();
+            System.out.print(rnode.getData()+"\t");
+            if (rnode.getRight() != null) {
+                stack.push(rnode.getRight());
+            }
+            if (rnode.getLeft() != null) {
+                stack.push(rnode.getLeft());
+            }
+        }
+    }
+
+
+        public static void main(String[] args) {
         BinaryTreeNode node10=new BinaryTreeNode(10,null,null);
         BinaryTreeNode node8=new BinaryTreeNode(8,null,null);
         BinaryTreeNode node9=new BinaryTreeNode(9,null,node10);
@@ -124,6 +146,8 @@ public class BinaryTree {
         BinaryTreeNode node3=new BinaryTreeNode(3,node6,node7);
         BinaryTreeNode node1=new BinaryTreeNode(1,node2,node3);
 
+        boolean teset=true;
+        if (teset){
         BinaryTree tree=new BinaryTree();
         //采用递归的方式进行遍历
         System.out.println("-----前序遍历------");
@@ -149,6 +173,9 @@ public class BinaryTree {
         System.out.println("-----层序遍历------");
         tree.levelOrder(node1);
         System.out.println();
+        }
+            System.out.println("-----深度遍历------");
+        depthTraversal(node1);
     }
 
     }
