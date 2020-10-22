@@ -38,6 +38,7 @@ public class Simple {
         return (rs>max||rs<min)?0:(int)rs;//超了最大值低于最小值就返回0
     }
 
+    //链表相交
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 
         ListNode n1=headA;
@@ -49,6 +50,18 @@ public class Simple {
         return n1;
     }
 
+    //链表是否有环
+    public boolean isLopper(ListNode head) {
+
+        ListNode slow=head;
+        ListNode fast=head;
+        while (fast!=null&&fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if (slow==fast)return true;
+        }
+        return false;
+    }
      class ListNode {
         int val;
         ListNode next;

@@ -24,16 +24,15 @@ public class BinaryTree {
         Stack<BinaryTreeNode> stack=new Stack<>();
         while (true){
             while (root!=null){
-                //logNLR
                 System.out.print(root.getData()+"\t");
                 stack.push(root);
                 root=root.getLeft();
             }
             if (stack.isEmpty())break;
             root=stack.pop();
-            //log LNR
             root=root.getRight();
         }
+
     }
 
     //中序遍历采用递归的方式
@@ -107,10 +106,9 @@ public class BinaryTree {
         queue.offer(root);
         while (!queue.isEmpty()){
             temp=queue.poll();
-//            log
-            if (temp.getLeft()!=null)queue.offer(temp.getLeft());
-            if (temp.getRight()!=null)queue.offer(temp.getRight());
-
+            System.out.print(temp.getData()+"\t");
+            if (temp.getLeft()!=null) queue.offer(temp.getLeft());
+            if (temp.getRight()!=null) queue.offer(temp.getRight());
         }
     }
 

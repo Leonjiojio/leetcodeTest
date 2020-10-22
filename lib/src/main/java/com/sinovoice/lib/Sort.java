@@ -1,6 +1,7 @@
 package com.sinovoice.lib;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * Created by liqiang on 2020/9/7.
@@ -104,6 +105,8 @@ public class Sort {
             _quickSort(list,middle+1,high);
         }
     }
+
+
 
     private   static  void printData(int[] data){
         System.out.println(Arrays.toString(data));
