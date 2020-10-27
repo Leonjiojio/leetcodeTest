@@ -1,4 +1,4 @@
-package com.sinovoice.lib;
+package com.sinovoice.lib.thread;
 
 import org.jetbrains.annotations.NotNull;
 
