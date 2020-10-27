@@ -49,4 +49,15 @@ public class ListRevert {
 
         return head;
     }
+    private boolean getIntersectionNode(ListNode head1,ListNode head2){
+        if (head1==null||head2==null) return false;
+        ListNode p1=head1;
+        ListNode p2=head2;
+        while (p1!=p2){
+            p1=p1.next==null?head2:p1.next;
+            p2=p2.next==null?head1:p2.next;
+            if (p1==p2)return true;
+        }
+        return false;
+    }
 }
