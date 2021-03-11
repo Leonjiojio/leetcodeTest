@@ -26,9 +26,7 @@ android {
             proto {
                 srcDir 'src/main/proto'
             }
-            java {
-                srcDir 'src/main/java'
-            }
+            java.srcDirs = ['src/main/java', 'src/main/aidl']
         }
     }
 }
