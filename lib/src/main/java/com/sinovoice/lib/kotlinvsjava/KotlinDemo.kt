@@ -6,12 +6,12 @@ package com.sinovoice.lib.kotlinvsjava
 class KotlinDemo {
     fun nullCheck(str:String){
 //        str?.plus("like")
-        print("string is null="+str?: 0)
+        println("string is null="+str?: 0)
 
     }
     fun printClassName(){
 //        print(KotlinDemo::class.simpleName)
-        print(JavaUtils::class.java.simpleName)
+        println(JavaUtils::class.java.simpleName)
     }
 
     fun doSth(text: String) {
