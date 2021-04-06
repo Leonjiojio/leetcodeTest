@@ -11,6 +11,9 @@ public class MapTest {
         SynchronousQueue queue=new SynchronousQueue();
         TreeMap<String,String> tree=new TreeMap();
         Map<String, String> map = Collections.synchronizedMap(tree);
+//        int a=5;
 
+        int a;
+        int b=a=5;
     }
 }

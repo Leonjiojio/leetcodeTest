@@ -20,8 +20,8 @@ public class YieldTest extends Thread  {
     }
 
     public static void main(String[] args) {
-        YieldTest yt1 = new YieldTest("张三");
-        YieldTest yt2 = new YieldTest("李四");
+        YieldTest yt1 = new YieldTest("Tom");
+        YieldTest yt2 = new YieldTest("Andy");
         yt1.start();
         yt2.start();
     }

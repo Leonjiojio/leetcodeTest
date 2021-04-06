@@ -5,8 +5,8 @@ package com.sinovoice.lib.kotlin
  **/
 class People(name:String,age:Int) {
 
-    val name=name
-    val age=age
+    var name=name
+    var age=age
     fun showInfo(){
         println("name=$name,age=$age")
     }

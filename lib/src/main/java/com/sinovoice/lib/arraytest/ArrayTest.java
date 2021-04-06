@@ -14,7 +14,7 @@ class ArrayTest {
 
         long start=System.nanoTime();
         int target=30;
-        System.out.println(target+" inside "+isInside2(target,array));
+        System.out.println(target+" inside "+isInside(target,array));
         long spend=System.nanoTime()-start;
         System.out.println("spend "+spend+" ns");
     }
