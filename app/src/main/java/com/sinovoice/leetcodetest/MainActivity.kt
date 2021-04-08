@@ -1,5 +1,7 @@
 package com.sinovoice.leetcodetest
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import demo.app.com.protocolbufferdemo.UserBean
@@ -23,7 +25,10 @@ class MainActivity : AppCompatActivity() {
         }catch (e:Exception){
             e.printStackTrace()
         }
+//        startActivity<MainActivity>()
+    }
 
-
+    inline fun <reified T : Activity> Activity.startActivity() {
+        startActivity(Intent(this, T::class.java))
     }
 }
