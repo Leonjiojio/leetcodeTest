@@ -8,9 +8,17 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import demo.app.com.protocolbufferdemo.UserBean
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.*
 import java.lang.Exception
+import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
+
+    private val job = Job()
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
 
     val TAG="liveDate"
     private val liveData =MutableLiveData<String>()
@@ -21,6 +29,21 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "onchange: $it")
         })
         liveData.value="onCreate"
+        button.setOnClickListener {
+            GlobalScope.launch (Dispatchers.Main){
+                coroutineTest()
+            }
+        }
+    }
+
+    suspend fun coroutineTest(){
+        val job=GlobalScope.async(Dispatchers.IO) {
+
+            delay(2000)
+            return@async "like"
+        }
+        val result=job.await()
+        tv1.text=result
     }
 
     override fun onStart() {
@@ -49,6 +72,8 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         liveData.value="onDestroy"
+        cancel()
+        job.cancel()
     }
 
 
