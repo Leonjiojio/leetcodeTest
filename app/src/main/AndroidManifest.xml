@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.sinovoice.leetcodetest">
+        package="com.sinovoice.leetcodetest">
 
     <application
             android:allowBackup="true"
@@ -9,21 +9,24 @@
             android:roundIcon="@drawable/leetcode"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ActivityB"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".RemoteService"
+
+        <service
+                android:name=".RemoteService"
                 android:enabled="true"
                 android:exported="true"
-                android:label="myService"
-                >
+                android:label="myService">
             <intent-filter>
-                <action android:name="com.sinovoice.leetcodetest.RemoteService"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.sinovoice.leetcodetest.RemoteService" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
     </application>

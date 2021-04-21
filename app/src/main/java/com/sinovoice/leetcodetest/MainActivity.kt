@@ -2,7 +2,6 @@ package com.sinovoice.leetcodetest
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -13,20 +12,20 @@ import kotlinx.coroutines.*
 import java.lang.Exception
 import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
+class MainActivity : BasicActivity(), CoroutineScope by MainScope() {
 
     private val job = Job()
 
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job
 
-    val TAG="liveDate"
     private val liveData =MutableLiveData<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        TAG="TAG:MainActivity"
         setContentView(R.layout.activity_main)
         liveData.observe(this, Observer {
-            Log.d(TAG, "onchange: $it")
+//            Log.d(TAG, "onchange: $it")
         })
         liveData.value="onCreate"
         button.setOnClickListener {
@@ -34,6 +33,10 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
                 coroutineTest()
             }
         }
+        btn_start_new.setOnClickListener {
+            startActivity(Intent(this,ActivityB::class.java))
+        }
+        Log.d(TAG, "onCreate: ")
     }
 
     suspend fun coroutineTest(){
