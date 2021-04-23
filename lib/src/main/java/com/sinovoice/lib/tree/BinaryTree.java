@@ -144,7 +144,7 @@ public class BinaryTree {
         BinaryTreeNode node3=new BinaryTreeNode(3,node6,node7);
         BinaryTreeNode node1=new BinaryTreeNode(1,node2,node3);
 
-        boolean teset=true;
+        boolean teset=false;
         if (teset){
         BinaryTree tree=new BinaryTree();
         //采用递归的方式进行遍历
@@ -172,6 +172,8 @@ public class BinaryTree {
         tree.levelOrder(node1);
         System.out.println();
         }
+
+
             System.out.println("-----深度遍历------");
         depthTraversal(node1);
     }
