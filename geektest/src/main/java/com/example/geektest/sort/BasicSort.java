@@ -6,8 +6,8 @@ import java.util.Arrays;
  * Created by  on 2021/4/23.
  **/
 class BasicSort {
-//    public static int data[]={10,9,8,7,6,5,4,3,2,1};
-    public static int data[]={1,2,3,4,5,6,7,8,9,10};
+    public static int data[]={10,9,8,7,6,5,4,3,2,1};
+//    public static int data[]={1,2,3,4,5,6,7,8,9,10};
 
 
      static class MInteger {
@@ -86,6 +86,71 @@ class BasicSort {
             data[tmp]=temp[tmp++];
         }
 
+    }
+
+    private  static  void quickSort(int[] data){
+        _quickSort(data,0,data.length-1);
+    }
+    private static  void _quickSort(int[] data,int left,int right){
+        if (left<right){
+            int pivot=getPivot(data,left,right);
+            _quickSort(data,left,pivot-1);
+            _quickSort(data,pivot+1,right);
+        }
+    }
+    private static  int getPivot(int[] data,int left,int right){
+        int temp=data[left];
+        while (left<right){
+            while (left<right&&data[right]>=temp){
+                right--;
+            }
+            data[left]=data[right];
+
+            while (left<right&&data[left]<=temp){
+                left++;
+            }
+            data[right]=data[left];
+
+        }
+        data[left]=temp;
+
+        return  left;
+    }
+    private static  int getPivotRevet(int[] data,int left,int right){
+        int temp=data[left];
+        while (left<right){
+            while (left<right&&data[right]<=temp){
+                right--;
+            }
+            data[left]=data[right];
+
+            while (left<right&&data[left]>=temp){
+                left++;
+            }
+            data[right]=data[left];
+
+        }
+        data[left]=temp;
+
+        return  left;
+    }
+
+    private static  int getTopNum(int[] data,int level){
+        if (data==null)return level;
+        if (level>data.length||level<0)return level;
+        return getTopNum(data,0,data.length-1,level);
+    }
+    private static  int getTopNum(int[] data,int left,int right,int level){
+        if (left<right){
+            int pivot=getPivotRevet(data,left,right);
+            if (pivot+1==level)return data[pivot];
+            if (pivot+1>level){
+                return getTopNum(data,left,pivot-1,level);
+            }else{
+                return getTopNum(data,pivot+1,right,level);
+            }
+        }
+        return 0;
     }
 
 
@@ -195,10 +260,14 @@ class BasicSort {
         return  result;
     }
     public static void main(String[] args) {
-        mergSort(data);
-        System.out.println(Arrays.toString(data));
+//        quickSort(data);
+//        System.out.println(Arrays.toString(data));
 //        MInteger[] mdata = getMinteger();
 //        selectSort2(mdata);
 //        System.out.println(Arrays.toString(mdata));
+
+        int leve=4;
+        int result=getTopNum(data,leve);
+        System.out.println("top "+leve+" in data is "+result);
     }
 }
