@@ -7,11 +7,11 @@ class LinkedListRevert {
     public static void main(String[] args) {
 
         Node head=getTestData();
-//        Node result=reverseListByLocal(head);
-//        printNode(result);
+        Node result=revert2(head);
+        printNode(result);
 
-        boolean result=isLoop(head);
-        System.out.println("is loop="+result);
+//        boolean result=isLoop(head);
+//        System.out.println("is loop="+result);
 
     }
 
@@ -73,11 +73,30 @@ class LinkedListRevert {
     }
     private  static void printNode(Node head){
         if (head!=null){
-            while (head.next!=null){
+            while (head!=null){
                 System.out.println("value="+head.value);
                 head=head.next;
             }
         }
+    }
+
+    private static  Node revert2(Node cur){
+        if (cur==null)return  null;
+        if (cur.next==null){
+            return cur;
+        }
+        Node next=cur.next;
+
+        cur.next=revert2(next.next);
+
+//            if (next.next!=null){
+//                cur.next=revert2(next.next);
+//            }else{
+//                cur.next=null;
+//            }
+        next.next=cur;
+        return next;
+
     }
 
     private static Node getLoopTestData(){

@@ -7,7 +7,8 @@ import java.util.Stack;
  * Created by liqiang on 2020/9/7.
  **/
 public class Sort {
-    public static int data[]={49,38,65,97,76,13,27,49,78,34,12,64,5,4,62,99,98,54,56,17,18,23,34,15,35,25,53,51};
+//    public static int data[]={49,38,65,97,76,13,27,49,78,34,12,64,5,4,62,99,98,54,56,17,18,23,34,15,35,25,53,51};
+    private static int data[]={10,9,8,7,6,5,4,3,2,1};
 
     public static void  insertSort(){
         //时间复杂度O(n^2) O(1)
@@ -22,6 +23,11 @@ public class Sort {
         }
         printData(data);
 
+    }
+
+    public static void main(String[] args) {
+        bubbleSort();
+        printf();
     }
 
     public static  void shellSort(){
@@ -50,6 +56,7 @@ public class Sort {
         int position=0;
         for (int i = 0; i < data.length; i++) {
             int temp=data[i];
+            position=i;
             int j=i+1;
             for (; j <data.length ; j++) {
                 if (data[j]<temp){
@@ -62,18 +69,25 @@ public class Sort {
         }
         printData(data);
     }
+    private static int count=0;
     public static  void bubbleSort(){
         int temp=0;
+
         for (int i = 0; i <data.length-1 ; i++) {
+            boolean needQuit=false;
             for (int j = 0; j <data.length-1-i ; j++) {
+                count++;
                 if (data[j]>data[j+1]){
                     temp=data[j];
                     data[j]=data[j+1];
                     data[j+1]=temp;
+                    needQuit=true;
                 }
             }
+            if (!needQuit)return;
 
         }
+        System.out.println("比较次数"+count);
     }
 
     public static void  quickSort(){

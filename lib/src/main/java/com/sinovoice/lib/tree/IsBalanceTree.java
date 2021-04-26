@@ -45,17 +45,17 @@ public class IsBalanceTree {
                 tag.push(0);
                 cur=cur.getLeft();
             }
-//cur为null，栈顶元素无左孩子
+            //cur为null，栈顶元素无左孩子
             if(tag.peek()==1){
                 max=Math.max(max, stack.size());
-//System.out.print(stack.peek().getValue()+",");此处输出的值为后序遍历的结果
+                //System.out.print(stack.peek().getValue()+",");此处输出的值为后序遍历的结果
                 stack.pop();
                 tag.pop();
                 cur=null;//将当前指针指向空，则不执行从该节点向左找左孩子的操作
             }else{
                 BinaryTreeNode node=stack.peek();
                 cur=node.getRight();
-//修改栈顶tag标记为1
+                //修改栈顶tag标记为1
                 tag.pop();
                 tag.push(1);
             }
