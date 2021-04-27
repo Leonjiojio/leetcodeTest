@@ -4,15 +4,47 @@ package com.example.geektest.find;
  * Created by  on 2021/4/27.
  **/
 class BinarySearch {
-    public static int data[]={1,2,3,4,5,6,7,8,9,10};
+//    public static int data[]={1,2,3,4,5,6,7,8,9,10};
+//    public static int data[]={6,7,8,9,10,1,2,3,4,5};
+    public static int data[]={4,1};
 
     public static void main(String[] args) {
-      int result=  bSearchLastSmallerThanValue(data,4);
+      int result=  bSearchLoop(data,1);
 //      double result=  getSqureRoot(5,0.00000001);
       System.out.println("result="+result);
     }
 
+    private static int bSearchLoop(int[] data,int value){
+        if (data==null)return -1;
+       if (data.length==1)return data[0]==value?0:-1;
 
+        int left=0;
+        int right=data.length-1;
+        while (left<=right){
+            int middle=left+(right-left)/2;
+            if (data[middle]==value)return middle;
+            if (data[0]<=data[middle]){
+                //×ó²àÊÇÓĞĞòµÄ
+                if (data[0]<=value&&data[middle]>value){
+                    //ÔÚÆäÖĞ
+                    right=middle-1;
+                }else{
+                    left=middle+1;
+                }
+
+            }else{
+                //ÓÒ²àÊÇÑ­»·Êı×é mid+1 right
+                if (data[middle]<value&&data[data.length-1]>=value){
+                    left=middle+1;
+                }else{
+                    right=middle-1;
+                }
+
+            }
+
+        }
+        return -1;
+    }
 
     private static int bSearchLastSmallerThanValue(int[] data,int value){
         if (data==null)return -1;
@@ -135,7 +167,7 @@ class BinarySearch {
         return -1;
     }
     /**
-     * æˆ‘ä»¬ä»Šå¤©è®²çš„éƒ½æ˜¯éå¸¸è§„çš„äºŒåˆ†æŸ¥æ‰¾é—®é¢˜ï¼Œä»Šå¤©çš„æ€è€ƒé¢˜ä¹Ÿæ˜¯ä¸€ä¸ªéå¸¸è§„çš„äºŒåˆ†æŸ¥æ‰¾é—®é¢˜ã€‚å¦‚æœæœ‰åºæ•°ç»„æ˜¯ä¸€ä¸ªå¾ªç¯æœ‰åºæ•°ç»„ï¼Œæ¯”å¦‚ 4ï¼Œ5ï¼Œ6ï¼Œ1ï¼Œ2ï¼Œ3ã€‚é’ˆå¯¹è¿™ç§æƒ…å†µï¼Œå¦‚ä½•å®ç°ä¸€ä¸ªæ±‚â€œå€¼ç­‰äºç»™å®šå€¼â€çš„äºŒåˆ†æŸ¥æ‰¾ç®—æ³•å‘¢ï¼Ÿ
+     * ÎÒÃÇ½ñÌì½²µÄ¶¼ÊÇ·Ç³£¹æµÄ¶ş·Ö²éÕÒÎÊÌâ£¬½ñÌìµÄË¼¿¼ÌâÒ²ÊÇÒ»¸ö·Ç³£¹æµÄ¶ş·Ö²éÕÒÎÊÌâ¡£Èç¹ûÓĞĞòÊı×éÊÇÒ»¸öÑ­»·ÓĞĞòÊı×é£¬±ÈÈç 4£¬5£¬6£¬1£¬2£¬3¡£Õë¶ÔÕâÖÖÇé¿ö£¬ÈçºÎÊµÏÖÒ»¸öÇó¡°ÖµµÈÓÚ¸ø¶¨Öµ¡±µÄ¶ş·Ö²éÕÒËã·¨ÄØ£¿
      * @param data
      * @param value
      * @return

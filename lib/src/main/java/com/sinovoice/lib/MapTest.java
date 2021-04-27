@@ -16,4 +16,13 @@ public class MapTest {
         int a;
         int b=a=5;
     }
+
+    public static void main(String[] args) {
+        String s1="BBCC";
+        String s2="AaBb";
+        System.out.println("hashCode s1="+s1.hashCode()+",hashcode  s2="+s2.hashCode());
+
+        int n=32;
+        System.out.println("result="+(32&n));
+    }
 }
