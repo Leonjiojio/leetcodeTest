@@ -19,7 +19,7 @@ class HannuotaSolution {
         while (!c.empty()){
             System.out.println("result="+c.pop());
         }
-        System.out.println("è®¡ç®—æ¬¡æ•°="+count);
+        System.out.println("¼ÆËã´ÎÊı="+count);
     }
     private static int count=0;
     private static void hanota(List<Integer> A, List<Integer> B, List<Integer> C) {
@@ -30,27 +30,27 @@ class HannuotaSolution {
     }
 
     /**
-     * 1.å®šä¹‰é—®é¢˜çš„é€’å½’å‡½æ•°ï¼Œæ˜ç¡®å‡½æ•°çš„åŠŸèƒ½,æˆ‘ä»¬å®šä¹‰è¿™ä¸ªå‡½æ•°çš„åŠŸèƒ½ä¸ºï¼šæŠŠ A ä¸Šé¢çš„ n ä¸ªåœ†ç›˜ç»ç”± B ç§»åˆ° C
-     * 2.å…³ç³»å…¬å¼ï¼šmove(n from A to C) = move(n-1 from A to B) + move(A to C) + move(n-1 from B to C`)
-     * åˆ†æå¯å¾—ï¼Œæˆ‘ä»¬åˆ†ä¸‰æ­¥èµ°ã€‚
-     * (1)å…ˆæŠŠAä¸Šçš„n-1ä¸ªåœ†ç›˜ï¼Œé€šè¿‡å’ŒCçš„æ“ä½œç§»åŠ¨åˆ°Bä¸Šã€‚
-     * (2)æŠŠAå‰©ä¸‹çš„æœ€å¤§çš„ä¸€ä¸ªç›˜ç§»åŠ¨åˆ°Cã€‚
-     * (3)å†æŠŠBä¸Šçš„n-1ä¸ªç›˜ï¼Œé€šè¿‡å’ŒAçš„æ“ä½œç§»åŠ¨åˆ°Cä¸Šã€‚
-     * ä¸ç®¡æ€ä¹ˆç§»åŠ¨é—®é¢˜å’Œå­é—®é¢˜çš„å…³ç³»éƒ½å¯ä»¥æ˜¯è¿™ä¸‰æ­¥ï¼Œä¸‹é¢å°±å¯ä»¥å¼€å§‹é€’å½’ã€‚
+     * 1.¶¨ÒåÎÊÌâµÄµİ¹éº¯Êı£¬Ã÷È·º¯ÊıµÄ¹¦ÄÜ,ÎÒÃÇ¶¨ÒåÕâ¸öº¯ÊıµÄ¹¦ÄÜÎª£º°Ñ A ÉÏÃæµÄ n ¸öÔ²ÅÌ¾­ÓÉ B ÒÆµ½ C
+     * 2.¹ØÏµ¹«Ê½£ºmove(n from A to C) = move(n-1 from A to B) + move(A to C) + move(n-1 from B to C`)
+     * ·ÖÎö¿ÉµÃ£¬ÎÒÃÇ·ÖÈı²½×ß¡£
+     * (1)ÏÈ°ÑAÉÏµÄn-1¸öÔ²ÅÌ£¬Í¨¹ıºÍCµÄ²Ù×÷ÒÆ¶¯µ½BÉÏ¡£
+     * (2)°ÑAÊ£ÏÂµÄ×î´óµÄÒ»¸öÅÌÒÆ¶¯µ½C¡£
+     * (3)ÔÙ°ÑBÉÏµÄn-1¸öÅÌ£¬Í¨¹ıºÍAµÄ²Ù×÷ÒÆ¶¯µ½CÉÏ¡£
+     * ²»¹ÜÔõÃ´ÒÆ¶¯ÎÊÌâºÍ×ÓÎÊÌâµÄ¹ØÏµ¶¼¿ÉÒÔÊÇÕâÈı²½£¬ÏÂÃæ¾Í¿ÉÒÔ¿ªÊ¼µİ¹é¡£
      *
-     * ä½œè€…ï¼šjhtoed
-     * é“¾æ¥ï¼šhttps://leetcode-cn.com/problems/hanota-lcci/solution/zhi-qian-yi-zhi-tiao-guo-yi-nuo-ta-zhe-ci-zhong-yu/
-     * æ¥æºï¼šåŠ›æ‰£ï¼ˆLeetCodeï¼‰
+     * ×÷Õß£ºjhtoed
+     * Á´½Ó£ºhttps://leetcode-cn.com/problems/hanota-lcci/solution/zhi-qian-yi-zhi-tiao-guo-yi-nuo-ta-zhe-ci-zhong-yu/
+     * À´Ô´£ºÁ¦¿Û£¨LeetCode£©
      */
     private static void func(int size,List<Integer> A, List<Integer> B, List<Integer> C){
         count++;
-        //å½“ç›˜å­éƒ½ç§»åŠ¨ç©ºäº†ä¹‹ååœæ­¢é€’å½’
+        //µ±ÅÌ×Ó¶¼ÒÆ¶¯¿ÕÁËÖ®ºóÍ£Ö¹µİ¹é
         if (size<=0){return;}
-        //å°†Aä¸Šé¢çš„ n-1 ä¸ªåœ†ç›˜ç»ç”± C ç§»åˆ° B
+        //½«AÉÏÃæµÄ n-1 ¸öÔ²ÅÌ¾­ÓÉ C ÒÆµ½ B
         func(size-1,A,C,B);
-        //æ­¤æ—¶å°† A åº•ä¸‹çš„é‚£å—æœ€å¤§çš„åœ†ç›˜ç§»åˆ° C
+        //´ËÊ±½« A µ×ÏÂµÄÄÇ¿é×î´óµÄÔ²ÅÌÒÆµ½ C
         C.add(A.remove(A.size()-1));
-        // å†å°† B ä¸Šçš„ n-1 ä¸ªåœ†ç›˜ç»ç”±Aç§»åˆ° Cä¸Š
+        // ÔÙ½« B ÉÏµÄ n-1 ¸öÔ²ÅÌ¾­ÓÉAÒÆµ½ CÉÏ
         func(size-1,B,A,C);
     }
 }
