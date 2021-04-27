@@ -1,6 +1,7 @@
 package com.example.geektest.sort;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * Created by  on 2021/4/23.
@@ -98,8 +99,58 @@ class BasicSort {
             _quickSort(data,pivot+1,right);
         }
     }
+    private static int getMidIntIN3(int a,int b,int c){
+        if (a==b&&b==c)return  a;
+        if (a==b||b==c||a==c){
+            return a;
+        }
+        if (a<b){
+            if (a>c){
+                return a;
+            }else{
+                return  b<c?b:c;
+            }
+        }else{
+            if (b>c){
+                return b;
+            }else{
+                return c<a?c:a;
+            }
+        }
+
+    }
+
+    private static void dealPivot(int[] arr, int left, int right) {
+        int mid = (left + right) / 2;
+
+        if (arr[left] > arr[mid]) {
+            swap(arr, left, mid);
+        }
+        if (arr[left] > arr[right]) {
+            swap(arr, left, right);
+        }
+        if (arr[right] < arr[mid]) {
+            swap(arr, right, mid);
+        }
+        // 将中值放到左边
+        swap(arr, left, mid);
+    }
+    private static void swap(int[] arr, int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+
     private static  int getPivot(int[] data,int left,int right){
+        //三数取中
+        dealPivot(data,left,right);
         int temp=data[left];
+
+        //随机法
+//        int index=left+new Random().nextInt(right-left);
+//        swap(data,index,left);
+//        int temp= data[left];
+
         while (left<right){
             while (left<right&&data[right]>=temp){
                 right--;
@@ -260,14 +311,14 @@ class BasicSort {
         return  result;
     }
     public static void main(String[] args) {
-//        quickSort(data);
-//        System.out.println(Arrays.toString(data));
+        quickSort(data);
+        System.out.println(Arrays.toString(data));
 //        MInteger[] mdata = getMinteger();
 //        selectSort2(mdata);
 //        System.out.println(Arrays.toString(mdata));
 
-        int leve=4;
-        int result=getTopNum(data,leve);
-        System.out.println("top "+leve+" in data is "+result);
+//        int leve=4;
+//        int result=getTopNum(data,leve);
+//        System.out.println("top "+leve+" in data is "+result);
     }
 }
