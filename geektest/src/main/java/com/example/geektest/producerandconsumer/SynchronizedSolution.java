@@ -8,13 +8,13 @@ import java.util.concurrent.LinkedBlockingQueue;
 /**
  * Created by  on 2021/4/28.
  **/
-class ProduceConsumer {
+class SynchronizedSolution {
     private static Integer count = 0;
     private static final Integer FULL = 10;
     private static  Queue<Integer> queue =new LinkedBlockingQueue<>();
 
     public static void main(String[] args) {
-        ProduceConsumer test1 = new ProduceConsumer();
+        SynchronizedSolution test1 = new SynchronizedSolution();
         new Thread(test1.new Producer(),"Producer").start();
         new Thread(test1.new Consumer(),"Consumer1").start();
         new Thread(test1.new Consumer(),"Consumer2").start();
