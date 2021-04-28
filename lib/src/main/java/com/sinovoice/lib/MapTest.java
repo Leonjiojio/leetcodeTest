@@ -18,11 +18,14 @@ public class MapTest {
     }
 
     public static void main(String[] args) {
-        String s1="BBCC";
-        String s2="AaBb";
-        System.out.println("hashCode s1="+s1.hashCode()+",hashcode  s2="+s2.hashCode());
+        List<String> result=new ArrayList<>();
+        result.add("BBCC");
+        result.add("AaCC");
+        result.add("BBBb");
+        result.add("AaBb");
 
-        int n=32;
-        System.out.println("result="+(32&n));
+        for (String str :result ) {
+            System.out.println(str+".hashCode="+str.hashCode());
+        }
     }
 }

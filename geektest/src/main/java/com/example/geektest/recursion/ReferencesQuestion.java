@@ -20,9 +20,9 @@ class ReferencesQuestion {
         System.out.println("reslt="+result);
     }
     /*
-    å‡å¦‚è¿™é‡Œæœ‰ n ä¸ªå°é˜¶ï¼Œæ¯æ¬¡ä½ å¯ä»¥è·¨ 1 ä¸ªå°é˜¶æˆ–è€… 2 ä¸ªå°é˜¶ï¼Œè¯·é—®èµ°è¿™ n ä¸ªå°é˜¶æœ‰å¤šå°‘ç§èµ°æ³•ï¼Ÿ
-    å¦‚æžœæœ‰ 7 ä¸ªå°é˜¶ï¼Œä½ å¯ä»¥ 2ï¼Œ2ï¼Œ2ï¼Œ1 è¿™æ ·å­ä¸ŠåŽ»ï¼Œä¹Ÿå¯ä»¥ 1ï¼Œ2ï¼Œ1ï¼Œ1ï¼Œ2 è¿™æ ·å­ä¸ŠåŽ»ï¼Œ
-    æ€»ä¹‹èµ°æ³•æœ‰å¾ˆå¤šï¼Œé‚£å¦‚ä½•ç”¨ç¼–ç¨‹æ±‚å¾—æ€»å…±æœ‰å¤šå°‘ç§èµ°æ³•å‘¢
+    ¼ÙÈçÕâÀïÓÐ n ¸öÌ¨½×£¬Ã¿´ÎÄã¿ÉÒÔ¿ç 1 ¸öÌ¨½×»òÕß 2 ¸öÌ¨½×£¬ÇëÎÊ×ßÕâ n ¸öÌ¨½×ÓÐ¶àÉÙÖÖ×ß·¨£¿
+    Èç¹ûÓÐ 7 ¸öÌ¨½×£¬Äã¿ÉÒÔ 2£¬2£¬2£¬1 ÕâÑù×ÓÉÏÈ¥£¬Ò²¿ÉÒÔ 1£¬2£¬1£¬1£¬2 ÕâÑù×ÓÉÏÈ¥£¬
+    ×ÜÖ®×ß·¨ÓÐºÜ¶à£¬ÄÇÈçºÎÓÃ±à³ÌÇóµÃ×Ü¹²ÓÐ¶àÉÙÖÖ×ß·¨ÄØ
      */
     private int stepsQuestion(int n){
         if (n==1)return  1;
