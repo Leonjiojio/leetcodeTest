@@ -11,6 +11,7 @@
     <file url="file://$PROJECT_DIR$/lib/src/main/java/com/sinovoice/lib/ZConvert.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lib/src/main/java/com/sinovoice/lib/arraytest/ArrayTest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/lib/src/main/java/com/sinovoice/lib/kotlinvsjava/JavaUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lib/src/main/java/com/sinovoice/lib/serilAndParcel/SerializableAndParcelable.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

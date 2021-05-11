@@ -7,9 +7,9 @@ import java.io.*;
  **/
 public class SerializableAndParcelable {
     public static  void main(String args[]){
-//        serializableAnimal();
-//        deserializableAnimal();
-        tesetExternalizable();
+        serializableAnimal();
+        deserializableAnimal();
+//        tesetExternalizable();
 
     }
 
@@ -17,18 +17,18 @@ public class SerializableAndParcelable {
 
     private static  void tesetExternalizable(){
         Person p=new Person(18,"Tom");
-        System.out.println("序列化前"+p.toString());
+        System.out.println("before serializable"+p.toString());
         serializable(p);
         Person newP=(Person) deserializable();
-        System.out.println("序列化后"+newP.toString());
+        System.out.println("after serializable"+newP.toString());
     }
     private static void serializableAnimal(){
-        BlackCat blackCat=new BlackCat("Black","黑猫Tom");
-        System.out.println("序列化前"+blackCat.toString());
+        BlackCat blackCat=new BlackCat("Black","BlackCatTom");
+        System.out.println("before serializable"+blackCat.toString());
         serializable(blackCat);
     }
     private static void serializable(Serializable serializable){
-        System.out.println("=================开始序列化================");
+        System.out.println("=================serializable================");
         try {
             ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream(FILE_PATH));
             oos.writeObject(serializable);
@@ -39,7 +39,7 @@ public class SerializableAndParcelable {
         }
     }
     private static Object deserializable(){
-        System.out.println("=================开始反序列化================");
+        System.out.println("=================serializable================");
         try {
             ObjectInputStream ois=new ObjectInputStream(new FileInputStream(FILE_PATH));
             Object obj= ois.readObject();
@@ -52,7 +52,7 @@ public class SerializableAndParcelable {
     }
     private static  void deserializableAnimal(){
         BlackCat blackCat=(BlackCat) deserializable();
-        System.out.println("序列化后"+blackCat.toString());
+        System.out.println("after serializable"+blackCat.toString());
 
     }
 
