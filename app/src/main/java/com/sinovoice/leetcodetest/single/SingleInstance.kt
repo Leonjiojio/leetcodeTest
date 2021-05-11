@@ -1,4 +1,4 @@
-package com.sinovoice.leetcodetest
+package com.sinovoice.leetcodetest.single
 
 /**
  *Created by liqiang on 2020/9/16.
