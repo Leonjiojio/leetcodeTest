@@ -6,7 +6,11 @@
     <file url="file://$PROJECT_DIR$/geektest/src/main/java/com/example/geektest/producerandconsumer/ProduceConsumer.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/geektest/src/main/java/com/example/geektest/recursion/ReferencesQuestion.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/geektest/src/main/java/com/example/geektest/sort/BasicSort.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/lib/src/main/java/com/sinovoice/lib/MyClass.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lib/src/main/java/com/sinovoice/lib/Sort.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/lib/src/main/java/com/sinovoice/lib/ZConvert.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lib/src/main/java/com/sinovoice/lib/arraytest/ArrayTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/lib/src/main/java/com/sinovoice/lib/kotlinvsjava/JavaUtils.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

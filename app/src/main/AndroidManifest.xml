@@ -10,10 +10,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".ActivityB"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".ActivityC" android:launchMode="singleTask" android:taskAffinity="com.sinovoice.leetcodetest.singleTask"></activity>
+        <activity android:name=".MainActivity" android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

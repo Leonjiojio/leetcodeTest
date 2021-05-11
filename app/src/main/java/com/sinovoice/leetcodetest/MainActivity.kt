@@ -36,7 +36,7 @@ class MainActivity : BasicActivity(), CoroutineScope by MainScope() {
         btn_start_new.setOnClickListener {
             startActivity(Intent(this,ActivityB::class.java))
         }
-        Log.d(TAG, "onCreate: ")
+        Log.d(TAG, "onCreate: tashId=$taskId")
     }
 
     suspend fun coroutineTest(){
