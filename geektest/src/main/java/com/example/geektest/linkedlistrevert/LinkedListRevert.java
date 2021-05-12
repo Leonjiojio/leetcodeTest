@@ -7,7 +7,7 @@ class LinkedListRevert {
     public static void main(String[] args) {
 
         Node head=getTestData();
-        Node result=revert2(head);
+        Node result=revertRecursion(head);
         printNode(result);
 
 //        boolean result=isLoop(head);
@@ -17,17 +17,17 @@ class LinkedListRevert {
 
     public static Node reverseListByInsert(Node head){
 
-        Node resultList = new Node(-1);
+        Node resultNode = new Node(-1);
         //循环节点 insert head
         Node p = head;
         while(p!= null){
             //保存插入点之后的数据
-            Node tempList = p.next;
-            p.next = resultList.next;
-            resultList.next = p;
-            p = tempList;
+            Node tempNode = p.next;
+            p.next = resultNode.next;
+            resultNode.next = p;
+            p = tempNode;
         }
-        return resultList.next;
+        return resultNode.next;
     }
 
     //就地反转:
@@ -57,7 +57,16 @@ class LinkedListRevert {
         }
         return false;
     }
+    private static  Node revertRecursion(Node head){
 
+        if (head==null||head.next==null){
+            return head;
+        }
+        Node newNode=revertRecursion(head.next);
+        head.next.next=head;
+        head.next=null;
+        return newNode;
+    }
     private static  Node revert(Node head){
         Node pre=null;
         Node cur=head;
