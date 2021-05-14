@@ -10,7 +10,8 @@
             android:roundIcon="@drawable/leetcode"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ActivityViewTest"></activity>
+        <activity android:name=".LeakCanaryActivity"></activity>
+        <activity android:name=".ActivityViewTest" />
         <activity android:name=".ActivityB" />
         <activity
                 android:name=".ActivityC"

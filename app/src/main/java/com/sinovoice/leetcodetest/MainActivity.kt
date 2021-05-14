@@ -39,6 +39,9 @@ class MainActivity : BasicActivity(), CoroutineScope by MainScope() {
         btn_start_test_activity.setOnClickListener {
             startActivity(Intent(this,ActivityViewTest::class.java))
         }
+        btn_start_leakcanry_activity.setOnClickListener {
+            startActivity(Intent(this,LeakCanaryActivity::class.java))
+        }
         Log.d(TAG, "onCreate: tashId=$taskId")
     }
 
