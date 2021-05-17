@@ -38,16 +38,39 @@ public class Simple {
         return (rs>max||rs<min)?0:(int)rs;//超了最大值低于最小值就返回0
     }
 
+    /**
+     * 实现replace方法 %20
+     * @param S
+     * @param length
+     * @return
+     */
+    public String replaceSpaces(String S, int length) {
+        if (S==null)return null;
+        char[] chars= S.toCharArray();
+        char space=' ';
+        StringBuilder sb=new StringBuilder();
+        for (int i = 0; i <length ; i++) {
+            if (chars[i]==space){
+                sb.append("%20");
+            }else{
+                sb.append(chars[i]);
+            }
+
+        }
+        return  sb.toString();
+    }
+
     //链表相交
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    public Boolean getIntersectionNode(ListNode headA, ListNode headB) {
 
         ListNode n1=headA;
         ListNode n2=headB;
         while (n1!=n2){
             n1=n1==null?headB:n1.next;
             n2=n2==null?headA:n2.next;
+            if (n1==n2)return true;
         }
-        return n1;
+        return false;
     }
 
     //链表是否有环

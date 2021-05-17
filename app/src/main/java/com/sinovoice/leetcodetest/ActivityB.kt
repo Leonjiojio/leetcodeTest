@@ -20,5 +20,15 @@ class ActivityB : BasicActivity() {
         btn_start.setOnClickListener {
             startActivity(Intent(application,ActivityC::class.java))
         }
+
+        btn_finish.setOnClickListener {
+            val  intentResult =Intent()
+            val bundle=Bundle()
+            bundle.putString("key","form activity B")
+            intentResult.putExtras(bundle)
+            setResult(10086,intentResult)
+            finish()
+
+        }
     }
 }

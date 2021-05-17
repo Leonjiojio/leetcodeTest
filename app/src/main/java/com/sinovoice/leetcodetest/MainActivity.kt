@@ -3,12 +3,17 @@ package com.sinovoice.leetcodetest
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.sinovoice.leetcodetest.utils.FileUtils
 import demo.app.com.protocolbufferdemo.UserBean
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
+import java.io.File
+import java.io.FileOutputStream
 import java.lang.Exception
 import kotlin.coroutines.CoroutineContext
 
@@ -43,6 +48,11 @@ class MainActivity : BasicActivity(), CoroutineScope by MainScope() {
             startActivity(Intent(this,LeakCanaryActivity::class.java))
         }
         Log.d(TAG, "onCreate: tashId=$taskId")
+        btn_protobuf_test.setOnClickListener {
+            val id=etId.text.toString().toLong()
+            val name=etname.text.toString()
+            protoBufTest(id,name)
+        }
     }
 
     suspend fun coroutineTest(){
@@ -86,20 +96,23 @@ class MainActivity : BasicActivity(), CoroutineScope by MainScope() {
     }
 
 
-    fun test(){
+    private fun protoBufTest(id:Long,name:String){
 
         var builder=UserBean.TestBean.newBuilder()
-        builder.setId(1)
-            .setName("Tom")
-            .setMsg(1,"A")
+        builder.setId(id)
+            .name =name
+
+        val file=File(Environment.getExternalStorageDirectory().absolutePath,"userbin.proto")
+
 
         val byte=builder.build().toByteArray()
+        FileUtils.saveFile(byte,file)
         try {
             val testBean= UserBean.TestBean.parseFrom(byte)
+            Toast.makeText(application,"name${testBean.name},id=${testBean.id}",Toast.LENGTH_SHORT).show()
         }catch (e:Exception){
             e.printStackTrace()
         }
-//        startActivity<MainActivity>()
     }
 
     inline fun <reified T : Activity> Activity.startActivity() {

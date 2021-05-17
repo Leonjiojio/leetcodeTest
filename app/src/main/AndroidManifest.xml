@@ -15,8 +15,7 @@
         <activity android:name=".ActivityB" />
         <activity
                 android:name=".ActivityC"
-                android:launchMode="singleTask"
-                android:taskAffinity="com.sinovoice.leetcodetest.singleTask" />
+                />
         <activity
                 android:name=".MainActivity"
                 android:launchMode="singleTask">

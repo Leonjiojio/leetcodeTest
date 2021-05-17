@@ -46,6 +46,30 @@
             android:id="@+id/btn_start_leakcanry_activity"
             android:text="LeackCanary"
             />
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:id="@+id/etId"
+            android:text="1"
+            android:hint="id"
+            android:layout_height="wrap_content"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_marginLeft="50dp"
+            android:text="Tom"
+            android:layout_marginRight="50dp"
+            android:id="@+id/etname"
+            android:hint="name"
+            android:layout_height="wrap_content"/>
+    <Button
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id="@+id/btn_protobuf_test"
+            android:text="ProtoBufTest"
+            />
 
 
 </LinearLayout>
