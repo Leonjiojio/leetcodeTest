@@ -17,6 +17,7 @@ class ActivityB : BasicActivity() {
         intent.action=""
         intent.addCategory("")
         intent.setDataAndType(Uri.parse("file://adb.jpg"),"image/png")
+
         btn_start.setOnClickListener {
             startActivity(Intent(application,ActivityC::class.java))
         }

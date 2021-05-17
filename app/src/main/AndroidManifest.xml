@@ -12,13 +12,13 @@
             android:theme="@style/AppTheme">
         <activity android:name=".LeakCanaryActivity"></activity>
         <activity android:name=".ActivityViewTest" />
-        <activity android:name=".ActivityB" />
+        <activity android:name=".ActivityB" android:launchMode="singleInstance"/>
         <activity
                 android:name=".ActivityC"
                 />
         <activity
                 android:name=".MainActivity"
-                android:launchMode="singleTask">
+                >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

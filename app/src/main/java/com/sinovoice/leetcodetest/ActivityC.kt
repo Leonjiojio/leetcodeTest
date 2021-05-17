@@ -13,7 +13,8 @@ class ActivityC : BasicActivity() {
         TAG="TAG:ActivityC"
         Log.d(TAG, "onCreate: tashId=$taskId")
         btn_start.setOnClickListener {
-            startActivityForResult(Intent(application,ActivityB::class.java),10086)
+            startActivityForResult(Intent(this@ActivityC,ActivityB::class.java),10086)
+//            startActivity(Intent(application,ActivityB::class.java))
         }
     }
 
