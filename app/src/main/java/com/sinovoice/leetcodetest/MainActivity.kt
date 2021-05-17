@@ -86,20 +86,12 @@ class MainActivity : BasicActivity(), CoroutineScope by MainScope() {
     }
 
 
-
-
-
-
-
-
-
-
-
-    fun teset(){
+    fun test(){
 
         var builder=UserBean.TestBean.newBuilder()
-        builder.setId(1001)
-            .setMsg(1,"toast").setName("haha")
+        builder.setId(1)
+            .setName("Tom")
+            .setMsg(1,"A")
 
         val byte=builder.build().toByteArray()
         try {
