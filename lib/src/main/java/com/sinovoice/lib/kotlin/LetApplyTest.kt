@@ -69,4 +69,16 @@ class LetApplyTest {
         println("result: $result")
     }
 
+    /**
+     * 6.also函数的结构实际上和let很像唯一的区别就是返回值的不一样，let是以闭包的形式返回，返回函数体内最后一行的值，
+     * 如果最后一行为空就返回一个Unit类型的默认值。而also函数返回的则是传入对象的本身
+     */
+    fun alsotest(){
+        val people=People("Tom",26)
+        people.also {
+            it.age
+            it.name
+            print("my age=${it.age}")
+        }
+    }
 }

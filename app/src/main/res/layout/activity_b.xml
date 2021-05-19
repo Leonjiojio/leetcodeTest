@@ -5,21 +5,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ActivityB">
-
-    <Button
-            android:id="@+id/btn_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="StartActivity"
-            android:layout_centerInParent="true"/>
-    <Button
-            android:id="@+id/btn_finish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="result"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/btn_start"  />
-
     <TextView
             android:id="@+id/textView"
             android:layout_marginTop="50dp"
@@ -27,5 +12,39 @@
             android:layout_width="wrap_content"
             android:textSize="18sp"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:text="ActivityB" />
+    <Button
+            android:id="@+id/btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="StartActivity"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/textView"
+           />
+    <Button
+            android:id="@+id/btn_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="result"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/btn_start"  />
+    <Button
+            android:id="@+id/btn_load_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LoadImg"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/btn_finish"  />
+
+
+    <ImageView
+            android:layout_width="300dp"
+            android:id="@+id/iv_glide"
+            android:scaleType="fitCenter"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:src="@mipmap/ic_launcher"
+            android:layout_margin="10dp"
+            android:layout_height="300dp"/>
 </RelativeLayout>
