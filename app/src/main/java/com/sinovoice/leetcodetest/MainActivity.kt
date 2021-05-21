@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
+import android.util.SparseArray
 import android.widget.Toast
+import androidx.core.util.keyIterator
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.sinovoice.leetcodetest.utils.FileUtils
@@ -39,7 +41,8 @@ class MainActivity : BasicActivity(), CoroutineScope by MainScope() {
             }
         }
         btn_start_new.setOnClickListener {
-            startActivity(Intent(this,ActivityB::class.java))
+            val intent=Intent(this,ActivityB::class.java)
+            startActivity(intent)
         }
         btn_start_test_activity.setOnClickListener {
             startActivity(Intent(this,ActivityViewTest::class.java))
@@ -53,6 +56,18 @@ class MainActivity : BasicActivity(), CoroutineScope by MainScope() {
             val name=etname.text.toString()
             protoBufTest(id,name)
         }
+        btn_array_test.setOnClickListener { arrayTest() }
+    }
+    private fun arrayTest(){
+        val sparseArray= SparseArray<String>()
+        sparseArray.put(8,"8")
+        sparseArray.put(1,"8")
+        val keyit=sparseArray.keyIterator()
+        Log.d(TAG, "arrayTest: sparseArray.size="+sparseArray.size())
+        while (keyit.hasNext()){
+            Log.d(TAG, "arrayTest: key="+keyit.nextInt())
+        }
+
     }
 
     suspend fun coroutineTest(){

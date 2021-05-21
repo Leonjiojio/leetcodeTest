@@ -5,11 +5,13 @@ package com.example.geektest.find;
  **/
 class BinarySearch {
 //    public static int data[]={1,2,3,4,5,6,7,8,9,10};
+    public static int data[]={2,4,6,8,10,12};
 //    public static int data[]={6,7,8,9,10,1,2,3,4,5};
-    public static int data[]={4,1};
+//    public static int data[]={4,1};
 
     public static void main(String[] args) {
-      int result=  bSearchLoop(data,1);
+//      int result=  bSearchLoop(data,1);
+      int result=  bSearch(data,9);
 //      double result=  getSqureRoot(5,0.00000001);
       System.out.println("result="+result);
     }
@@ -137,7 +139,7 @@ class BinarySearch {
 
     private static int bSearch(int[] data,int value){
         if (data==null)return -1;
-        if (value<data[0]||value>data[data.length-1])return -1;
+//        if (value<data[0]||value>data[data.length-1])return -1;
 
         int left=0;
         int right=data.length-1;
@@ -151,7 +153,7 @@ class BinarySearch {
                 right=middle-1;
             }
         }
-        return -1;
+        return left;
     }
 
     private static  int _bSearchRecursion(int[] data,int left,int right,int value){
