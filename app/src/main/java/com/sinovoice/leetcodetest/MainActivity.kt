@@ -57,6 +57,9 @@ class MainActivity : BasicActivity(), CoroutineScope by MainScope() {
             protoBufTest(id,name)
         }
         btn_array_test.setOnClickListener { arrayTest() }
+        btn_test_activity.setOnClickListener {
+            startActivity(Intent(this,TestActivity::class.java))
+        }
     }
     private fun arrayTest(){
         val sparseArray= SparseArray<String>()
