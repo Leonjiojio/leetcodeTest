@@ -15,7 +15,6 @@ import demo.app.com.protocolbufferdemo.UserBean
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 import java.io.File
-import java.io.FileOutputStream
 import java.lang.Exception
 import kotlin.coroutines.CoroutineContext
 
@@ -58,7 +57,7 @@ class MainActivity : BasicActivity(), CoroutineScope by MainScope() {
         }
         btn_array_test.setOnClickListener { arrayTest() }
         btn_test_activity.setOnClickListener {
-            startActivity(Intent(this,TestActivity::class.java))
+            startActivity(Intent(this, HttpActivity::class.java))
         }
     }
     private fun arrayTest(){
@@ -74,6 +73,11 @@ class MainActivity : BasicActivity(), CoroutineScope by MainScope() {
     }
 
     suspend fun coroutineTest(){
+        GlobalScope.launch {
+//            val token = getToken()
+//            val userInfo = getUserInfo(token)
+//            setUserInfo(userInfo)
+        }
         val job=GlobalScope.async(Dispatchers.IO) {
 
             delay(2000)

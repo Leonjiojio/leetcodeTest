@@ -12,7 +12,7 @@
             android:roundIcon="@drawable/leetcode"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".HttpActivity"></activity>
         <activity android:name=".LeakCanaryActivity" />
         <activity android:name=".ActivityViewTest" />
         <activity

@@ -7,7 +7,7 @@ class LinkedListRevert {
     public static void main(String[] args) {
 
         Node head=getTestData();
-        Node result=revertRecursion(head);
+        Node result=reverseListByLocal2(head);
         printNode(result);
 
 //        boolean result=isLoop(head);
@@ -31,18 +31,50 @@ class LinkedListRevert {
     }
 
     //就地反转:
-    public static Node reverseListByLocal(Node head){
-        Node resultList = new Node(-1);
-        resultList.next= head;
-        Node p = head;
-        Node pNext = p.next;
-        while (pNext!=null){
-            p.next = pNext.next;
-            pNext.next = resultList.next;
-            resultList.next = pNext;
-            pNext=p.next;
+    public static Node reverseListByLocal2(Node head){
+       Node  beg = null;
+        Node end = null;
+        if (head == null || head.next == null) {
+            return head;
         }
-        return resultList.next;
+        beg = head;
+        end = head.next;
+        while (end != null) {
+            //将 end 从链表中摘除
+            beg.next = end.next;
+            //将 end 移动至链表头
+            end.next = head;
+            head = end;
+            //调整 end 的指向，另其指向 beg 后的一个节点，为反转下一个节点做准备
+            end = beg.next;
+        }
+        return head;
+    }
+    public static Node reverseListByLocal(Node head){
+        Node pPre = new Node(-1);
+        pPre.next= head;
+        Node pCur = head;
+        Node pNext = pCur.next;
+        while (pNext!=null){
+            pCur.next = pNext.next;
+            pNext.next = pPre.next;
+            pPre.next = pNext;
+            pNext=pCur.next;
+        }
+        return pPre.next;
+    }
+    private static  Node revert(Node head){
+        Node pre=null;
+        Node cur=head;
+        Node next;
+        while (cur!=null){
+            next=cur.next;
+            cur.next=pre;
+
+            pre=cur;
+            cur=next;
+        }
+        return  pre;
     }
 
 
@@ -67,19 +99,7 @@ class LinkedListRevert {
         head.next=null;
         return newNode;
     }
-    private static  Node revert(Node head){
-        Node pre=null;
-        Node cur=head;
-        Node next;
-        while (cur!=null){
-            next=cur.next;
-            cur.next=pre;
 
-            pre=cur;
-            cur=next;
-        }
-        return  pre;
-    }
     private  static void printNode(Node head){
         if (head!=null){
             while (head!=null){
