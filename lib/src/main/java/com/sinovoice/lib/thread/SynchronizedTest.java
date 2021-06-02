@@ -27,6 +27,7 @@ class SynchronizedTest {
             print(i);
             try {
                 Thread.sleep(500);
+                print(i);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

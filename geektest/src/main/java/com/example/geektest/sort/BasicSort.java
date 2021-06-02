@@ -78,7 +78,7 @@ class BasicSort {
         while (middle<=right){
             temp[index++]=data[middle++];
         }
-        while (left<=middle){
+        while (left<=center){
             temp[index++]=data[left++];
         }
 
