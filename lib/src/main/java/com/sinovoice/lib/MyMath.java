@@ -4,6 +4,9 @@ package com.sinovoice.lib;
  * Created by liqiang on 2020/9/7.
  **/
 public class MyMath {
+    public static void main(String[] args) {
+        modetest();
+    }
     public static int  sqrt(int c){
         //牛顿迭代法
 //        long s=System.currentTimeMillis();
@@ -24,6 +27,15 @@ public class MyMath {
         }
         return (int)x;
 
+    }
+    private static void modetest(){
+        int x=46;
+        int result=x%8;
+        int result2=x&(0b111);
+
+        System.out.println("x%2="+result+",x&0b111="+result2);
+        int a=075;
+        System.out.print("075="+a);
     }
 
     public  static int Gcd_2(int a,int b)/*欧几里德算法求a,b的最大公约数*/
